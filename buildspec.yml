@@ -7,7 +7,7 @@ phases:
       - aws --version
       - echo $AWS_DEFAULT_REGION
 #      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/w3s5h2n2
-      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin 704751486237.dkr.ecr.us-east-1.amazonaws.com/demo 
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 704751486237.dkr.ecr.us-east-1.amazonaws.com/demo 
   #   - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email) 
       - REPOSITORY_URI=704751486237.dkr.ecr.us-east-1.amazonaws.com/demo
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
