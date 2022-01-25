@@ -9,7 +9,7 @@ app.get('/will', function (req, res) {
     res.send('{ "response": "Hello World! Happy Staying" }');
 });
 app.get('/ready', function (req, res) {
-    res.send('{ "response": " Great!, It works!" }');
+    res.send('{ "response": " Great WOrk guys!, It works!" }');
 });
 app.listen(process.env.PORT || 3000);
 module.exports = app;
