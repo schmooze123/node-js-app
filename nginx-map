@@ -1,0 +1,130 @@
+############################################################################################################################################ 
+server
+{
+    listen 80;
+    server_name preprodfzstrading.gokumarket.com;
+    root /home/gokupreprodweb/goku_web_fzs/dist/goku-ico-web;
+    index index.html;
+
+    if (-f $document_root/maintenance.html)
+    {
+        return 503;
+    }
+
+    error_page 503 @maintenance;
+    location @maintenance
+    {
+        rewrite ^(.*)$ /maintenance.html break;
+    }
+
+    location /
+    {
+        try_files $uri $uri/ /index.html
+        proxy_pass http://10.172.209.170:80;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+##################################################AI-BOT###########################################################
+server
+{
+    listen 80;
+    server_name preprodaibotdefi.gokumarket.com;
+    root /home/gokupreprodweb/goku_web_aibot/goku_web_fzs/dist/goku-ico-web;
+    index index.html;
+
+    if (-f $document_root/maintenance.html)
+    {
+        return 503;
+    }
+
+    error_page 503 @maintenance;
+    location @maintenance
+    {
+        rewrite ^(.*)$ /maintenance.html break;
+    }
+
+    location /
+    {
+        try_files $uri $uri/ /index.html
+        proxy_pass http://10.172.209.170:80;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+########################################################################## Prod Admin Web ####################################################################
+server
+{
+    listen 80;
+    server_name preprodportfolio.gokumarket.org;
+    root /home/gokupreprodweb/goku_web_abhishek/dist/goku-ico-web;
+    index index.html;
+
+    if (-f $document_root/maintenance.html)
+    {
+        return 503;
+    }
+
+    error_page 503 @maintenance;
+    location @maintenance
+    {
+        rewrite ^(.*)$ /maintenance.html break;
+    }
+
+    location /
+    {
+        try_files $uri $uri/ /index.html
+        proxy_pass http://10.172.209.170:80;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+###########################################################################################################################################################
+
+
+
+########################################################################## Prod Admin Web ####################################################################
+server
+{
+    listen 80;
+    server_name preprodadmin.gokumarket.com;
+    root /home/gokupreprodweb/goku_admin_web/dist;
+    index index.html;
+
+    if (-f $document_root/maintenance.html)
+    {
+        return 503;
+    }
+
+    error_page 503 @maintenance;
+    location @maintenance
+    {
+        rewrite ^(.*)$ /maintenance.html break;
+    }
+
+    location /
+    {
+        try_files $uri $uri/ /index.html
+        proxy_pass http://10.172.209.170:80;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+###########################################################################################################################################################
+
